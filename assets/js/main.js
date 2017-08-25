@@ -1,4 +1,4 @@
- function listAllBooks() {
+
 
     if(typeof XMLHttpRequest !== 'undefined') xhttp = new XMLHttpRequest();
      else {
@@ -16,18 +16,16 @@
              catch(e){}
          }
      }
-
+    function listAllBooks() {
      xhttp.onreadystatechange = function() {
          if (this.readyState == 4 && this.status == 200) {
              // successfuly received response
-             console.log(xhttp.responseText);
-             var ourData = JSON.parse(xhttp.responseText);
-             console.log(xhttp.responseText);
+             console.log(this.responseText);
+             var ourData = JSON.parse(this.responseText);
+             console.log(this.responseText);
          }
      }
 
-
-
+     xhr.open('GET','../controller/ajaxController.php', true);
+     xhr.send(null);
 }
-
-

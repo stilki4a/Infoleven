@@ -41,7 +41,6 @@ $success = isset($success) ? $success : '';
                     </div>
                     <div class="addDiv" id="formatDiv">
                         <select  class="addInput" id="genre" name="genre"  >
-                            <option value="Choose format">---Choose gerne---</option>
                             <option value="comedy">comedy</option>
                             <option value="horror">horror</option>
                             <option value="biography ">biography</option>

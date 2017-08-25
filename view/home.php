@@ -20,7 +20,7 @@ $errorMessage = isset($errorMessage) ? $errorMessage : '';
     <div class="wrrap-sec">
         <div class="titleDiv">
             <div class="userloged">
-               <h1> Hello <?php echo $user->username;?></h1>
+<!--               <h1> Hello --><?php //echo $user->username;?><!--</h1>-->
                 <div >
                     <a href="../controller/LogoutController.php"> <button class="logout">Log Out</button></a>
                 </div>
