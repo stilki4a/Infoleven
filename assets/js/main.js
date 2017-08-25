@@ -17,10 +17,11 @@
          }
      }
     function listAllBooks() {
-     xhttp.onreadystatechange = function() {
-         if (this.readyState == 4 && this.status == 200) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+         if (xhr.readyState == 4 && xhr.status == 200) {
              // successfuly received response
-             console.log(this.responseText);
+             console.log(xhr.responseText);
              var ourData = JSON.parse(this.responseText);
              console.log(this.responseText);
          }
