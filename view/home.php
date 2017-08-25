@@ -13,6 +13,7 @@ $errorMessage = isset($errorMessage) ? $errorMessage : '';
     <title>Your Library</title>
 
     <link rel="stylesheet" href="../assets/css/reset.css" type="text/css" />
+    <link rel="stylesheet" href="../assets/css/prductStyle.css" type="text/css" />
 
 </head>
 <body>
@@ -35,7 +36,8 @@ $errorMessage = isset($errorMessage) ? $errorMessage : '';
                 <a href="../view/addBook.php"><button class = "buttons">Add New Book</button></a>
             </div>
         </div>
-        <div id="result">
+        <div id="result" border="1px solid black" >
+            dasdas
         </div>
     </div>
     <div class='error'>

@@ -11,7 +11,7 @@ if (isset ( $_SESSION ['user'] )) {
         if ($_SERVER ['REQUEST_METHOD'] === 'GET') {
 //            // list all contacts
             $dao = new BookDAO;
-          echo json_encode( $dao->listBooks()) ;
+           json_encode( $dao->listBooks()) ;
         }
 //    }catch (Exception $e) {
 //        $errorMessage = $e->getMessage();
