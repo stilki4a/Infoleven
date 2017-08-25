@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * Created by PhpStorm.
+ * User: user
+ * Date: 8/25/2017
+ * Time: 18:35 PM
+ */
 class User implements JsonSerializable {
     private $id;
     private $username;
