@@ -12,10 +12,13 @@ session_start ();
 //        if ((isset($_GET['Search']) && $_GET['genre'] == 0) && !empty($_GET['search'])) {
 
         if ((isset($_GET['Search']) && $_GET['genre'] == 0)){
-           $genre =  $_GET['genre'];
+
+            $genre =  $_GET['genre'];
+           $term = $_GET['search'];
 
             $dao = new SearchDAO();
              json_encode($dao->searchGenre($genre));
+             json_encode($dao->searchName($term));
 
         }
 

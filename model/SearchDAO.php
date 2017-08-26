@@ -24,9 +24,7 @@ class SearchDAO
 
     public function searchName(Search $term){
         $stmt = $this->db->prepare(self::SEARCG_SQL);
-        $stmt->execute(array(
-            $this->term
-        ));
+        $stmt->execute(array($term));
 
         $arr = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($arr);
