@@ -31,13 +31,16 @@
 
             var content = '';
              for (var i = 0; i < data.length; i++) {
+                 content += ' <div id="picture-wrapper">';
                  content += "<div class='products'><a href='#'>"
-                              +"Заглавие: " + data[i].book_title + "<br/>"
+                          + "<img src ='../media/"+ data[i].book_image + "'  alt='snimka'>" +"<br/>"
+                         // + "<img src ='../media/lib3.jpg'  alt='snimka'>" +"<br/>"
+                              +"Заглавие: " + data[i].book_title + "<br/> "
                              +"Страници :" + data[i].book_pages + "<br/> "
-                              + data[i].book_genre + "<br/> "
-                             + "<img src =' "+ data[i].book_image + "'  alt='tv'>" +"<br/>"
-                              + data[i].publish_date + " <br/>"
-                             +"<h3>" + data[i].model + "</h3></a>";
+                             +"Категория:" + data[i].book_genre + "<br/> "
+
+                              + data[i].publish_date + " <br/>";
+                  content += "</div>";
                  content += "</div>";
              }
 
@@ -52,23 +55,24 @@
 }
 
 
-
-    // function createDiv(data) {
-    //
-    //     var htmlString = "";
-    //
-    //
-    //     for (var i =0; i< data.length; i++){
-    //         htmlString +="<div class='products'><a href='#'>"
-    //              + data[i].book_title + " "
-    //              + data[i].book_pages + " "
-    //              + data[i].book_genre + " "
-    //             + "<img src =' "+ data[i].book_image + "'  alt='tv'>"
-    //              + data[i].publish_date + " "
-    //             +"<h3>" + data[i].model + "</h3></a>";
-    //         htmlString += "</div>";
-    //     }
-    //
-    //     div.insertAdjacentHTML('beforeend',htmlString);
-    //
-    // }
+    function showResult(str) {
+        if (str.length==0) {
+            document.getElementById("result").innerHTML="";
+            document.getElementById("result").style.border="0px";
+            return;
+        }
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        } else {  // code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function() {
+            if (this.readyState==4 && this.status==200) {
+                document.getElementById("result").innerHTML=this.responseText;
+                document.getElementById("result").style.border="1px solid #A5ACB2";
+            }
+        }
+        xmlhttp.open("GET","../controller/searchController.php?q="+str,true);
+        xmlhttp.send();
+    }

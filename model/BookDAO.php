@@ -9,7 +9,7 @@ class BookDAO {
 
     private $db;
 
-      const ADD_BOOK = 'INSERT INTO books VALUES(null,?,?,?,null,(SELECT NOW()),?)';
+      const ADD_BOOK = 'INSERT INTO books VALUES(null,?,?,?,?,(SELECT NOW()),?)';
 
     const ALL_BOOKS_SQL = "SELECT book_id, book_title, book_pages,book_genre,book_image,publish_date,user_id
 								FROM books
@@ -27,7 +27,7 @@ class BookDAO {
             $book->title,
             $book->pages,
             $book->genre,
-//            $book->publishDate,
+           $book->mediaImage,
             $book->userId
         ) );
 

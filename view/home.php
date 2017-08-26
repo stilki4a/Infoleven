@@ -36,8 +36,23 @@ $errorMessage = isset($errorMessage) ? $errorMessage : '';
                 <a href="../view/addBook.php"><button class = "buttons">Add New Book</button></a>
             </div>
         </div>
-        <div id="result" border="1px solid black" >
-            dasdas
+        <div>
+<!--            <form action="../controller/searchController.php" method="get">-->
+<!--                <input type="search" placeholder="search" name="search">-->
+<!--                <select  class="addInput" id="genre" name="genre"  >-->
+<!--                    <option value="comedy">comedy</option>-->
+<!--                    <option value="horror">horror</option>-->
+<!--                    <option value="biography ">biography</option>-->
+<!--                </select>-->
+<!--                <input type="submit" name="Search" value="Search">-->
+<!--            </form>-->
+            <form>
+                <input type="text" size="30" onkeyup="showResult(this.value)">
+                <div id="livesearch"></div>
+            </form>
+        </div>
+        <div id="result" class="res" >
+
         </div>
     </div>
     <div class='error'>

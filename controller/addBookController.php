@@ -23,11 +23,40 @@ session_start ();
 //                htmlentities(trim($_POST['pDate'])),
                 $userId
             );
+            if(isset($_FILES['files']['name'][0])){
+                $errors=array();
+                foreach($_FILES['files']['tmp_name'] as $key => $tmp_name ){
+                    if($_FILES['files']['error'][$key] > 0){
+                        continue;
+                    }
+                    $file_name = $key.$_FILES['files']['name'][$key];
+                    $file_size =$_FILES['files']['size'][$key];
+                    $file_tmp =$_FILES['files']['tmp_name'][$key];
+                    $file_type=$_FILES['files']['type'][$key];
+                    if($file_size > 2097152){
+                        $errors[]='File size must be less than 2 MB';
+                    }
+                    if(empty($errors)==true){
+                        $extensions = array("jpeg","jpg","png");
+                        $name=$_FILES['files']['name'][$key];
+                        $file_ext=pathinfo($name, PATHINFO_EXTENSION);
 
-            /*
-                book testing
-            */
-           var_dump($book);
+
+                        if(in_array($file_ext,$extensions ) === true){
+
+                            $img = (new BookDAO)->randomName($file_ext);
+
+
+                            move_uploaded_file($file_tmp,"../assets/media/{$img}");
+                            $book->setImage($img);
+                        }else{
+                            $errors[]="extension not allowed";
+                        }
+                    }
+                }
+            }
+
+
 
 
 

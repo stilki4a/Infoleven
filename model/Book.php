@@ -13,16 +13,16 @@ class Book implements JsonSerializable {
         private $genre;
         private $mediaImage;
         private $publishDate;
-        private $userId = 1;
+        private $userId;
 
 
-    public function __construct($title,$pages,$genre,$userID,$publishDate = null,$id = null) {
+    public function __construct($title,$pages,$genre,$userID,$mediaImage = null,$id = null) {
 
 
     $this->title =$title;
     $this->pages = $pages;
     $this->genre = $genre;
-    $this->publishDate = $publishDate;
+//    $this->publishDate = $publishDate;
     $this->userId = $userID;
 
     }
@@ -45,14 +45,14 @@ class Book implements JsonSerializable {
 
         }
 
-//        public function setImage($image){
-//            if($image === null){
-//                $this->mediaImage='lib3.jpg';
-//            }else{
-//                $this->mediaImage = $image;
-//            }
-//
-//        }
+        public function setImage($image){
+            if($image === null){
+                $this->mediaImage='lib3.jpg';
+            }else{
+                $this->mediaImage = $image;
+            }
+
+        }
 
 
     }
