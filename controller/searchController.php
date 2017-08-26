@@ -15,7 +15,7 @@ session_start ();
            $genre =  $_GET['genre'];
 
             $dao = new SearchDAO();
-            echo json_encode($dao->searchGenre($genre));
+             json_encode($dao->searchGenre($genre));
 
         }
 

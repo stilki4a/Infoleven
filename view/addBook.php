@@ -74,7 +74,7 @@ $success = isset($success) ? $success : '';
 </div>
 
 <script src="../assets/js/jquery-3.1.1.min.js"></script>
-<script src="../assets/js/addBook.js"></script>
+<script src="../assets/js/genre.js"></script>
 </body>
 </html>
 
