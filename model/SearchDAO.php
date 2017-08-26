@@ -47,10 +47,7 @@ class SearchDAO
 
     public function searchFromTo($from,$to){
         $stmt = $this->db->prepare(self::SEARCH_FROM_TO_SQL);
-        $stmt->execute(array(
-            $this->from,
-            $this->to
-        ));
+        $stmt->execute(array($from,$to));
 
         $arr = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($arr);

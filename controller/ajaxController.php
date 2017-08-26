@@ -9,9 +9,30 @@ if (isset ( $_SESSION ['user'] )) {
 //    try{
 //
         if ($_SERVER ['REQUEST_METHOD'] === 'GET') {
+//
 //            // list all contacts
-            $dao = new BookDAO;
-           json_encode( $dao->listBooks()) ;
+            if ((isset($_GET['Search'])) && (isset($_GET['genre']))) {
+                $genre = $_GET['genre'];
+
+                $dao = new SearchDAO();
+                json_encode($dao->searchGenre($genre));
+
+            }
+
+            elseif (isset($_GET['findPage']) && isset($_GET['min']) && isset($_GET['max'])){
+
+                $from = $_GET['min'];
+                $to = $_GET['max'];
+
+                $dao = new SearchDAO();
+                json_encode($dao->searchFromTo($from,$to));
+            }
+
+
+            else {
+                $dao = new BookDAO;
+                json_encode($dao->listBooks());
+            }
         }
 //    }catch (Exception $e) {
 //        $errorMessage = $e->getMessage();

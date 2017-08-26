@@ -18,19 +18,19 @@ else {
 
 
 function showGenre() {
-    var xhrr = new XMLHttpRequest();
-    xhrr.onreadystatechange = function() {
-        if (xhrr.readyState == 4 && xhrr.status == 200) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
 
 
-            var data = JSON.parse(xhrr.responseText);
+            var data = JSON.parse(xhr.responseText);
 
             // successfuly received response
-            console.log(xhrr.responseText);
+            console.log(xhr.responseText);
 
             // createDiv(data);
             //
-            // document.getElementById("result").innerHTML=xhr.responseText;
+             document.getElementById("result").innerHTML=xhr.responseText;
             // document.getElementById("result").style.border="1px solid #A5ACB2";
 
 
@@ -55,6 +55,6 @@ function showGenre() {
         }
     }
 
-    xhrr.open('GET','../controller/searchController.php', true);
-    xhrr.send();
+    xhr.open('GET','../controller/ajaxController.php', true);
+    xhr.send();
 }

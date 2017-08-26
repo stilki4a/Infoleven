@@ -37,8 +37,9 @@ $errorMessage = isset($errorMessage) ? $errorMessage : '';
             </div>
         </div>
         <div>
+            <div>
 
-            <form action="../controller/searchController.php" method="get" onsubmit="showGenre()">
+            <form action="../controller/ajaxController.php" method="get" onclick="showGenre()">
 <!--                <input type="search" placeholder="search" name="search">-->
                 <select  class="addInput" id="genre" name="genre"  >
                     <option value="comedy">comedy</option>
@@ -47,13 +48,26 @@ $errorMessage = isset($errorMessage) ? $errorMessage : '';
                 </select>
                 <input type="submit" name="Search" value="Search"">
             </form>
+            </div>
 
 
-
+            <div>
             <form>
                 <input type="text" size="30" onkeyup="showResult(this.value)">
                 <div id="livesearch"></div>
             </form>
+            </div>
+
+
+            <div>
+                <form action="../controller/ajaxController.php" method="get" onclick="show()">
+                    <input type="number"  name="min">
+                    <input type="number"  name="max">
+                    <input type="submit" value="Src" name="findPage">
+                </form>
+            </div>
+
+
 
         </div>
         <div id="result" class="res" >
