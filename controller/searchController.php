@@ -10,12 +10,23 @@ session_start ();
 //        $userId = json_decode($_SESSION ['user'])->id;
 
 //        if ((isset($_GET['Search']) && $_GET['genre'] == 0) && !empty($_GET['search'])) {
-        if ($_SERVER ['REQUEST_METHOD'] === 'GET') {
-            $term = $_REQUEST;
-//            // list all contacts
+
+        if ((isset($_GET['Search']) && $_GET['genre'] == 0)){
+           $genre =  $_GET['genre'];
+
             $dao = new SearchDAO();
-         echo   json_encode( $dao->search($term)) ;
+            echo json_encode($dao->searchGenre($genre));
+
         }
+
+//        if ($_SERVER ['REQUEST_METHOD'] === 'GET') {
+//            $term = $_REQUEST;
+////            // list all contacts
+//            $dao = new SearchDAO();
+//                json_encode( $dao->search()) ;
+//        }
+
+
 
 
     }

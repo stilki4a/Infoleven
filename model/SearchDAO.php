@@ -13,8 +13,9 @@ class SearchDAO
 
     const SEARCG_SQL = 'SELECT * FROM  books WHERE book_title LIKE %?%';
 
-    const SEARCH_FROM_TO_SQL = 'SELECT *FROM books WHERE book_pages BETWEEN ? AND ?';
+    const SEARCH_FROM_TO_SQL = 'SELECT * FROM books WHERE book_pages BETWEEN ? AND ?';
 
+    const SEARCH_BY_GENRE_SQL = 'SELECT * FROM books WHERE book_genre = ?';
 
     public function __construct() {
         $this->db = DBConnection::getDb ();
@@ -32,12 +33,28 @@ class SearchDAO
         return $arr;
     }
 
-    public function searchGenre(){
+    public function searchGenre($genre){
 
+        $stmt = $this->db->prepare(self::SEARCH_BY_GENRE_SQL);
+        $stmt->execute(array($genre));
+
+        $arr = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($arr);
+        return $arr;
     }
 
-    public function searchFromTo(){
 
+
+    public function searchFromTo($from,$to){
+        $stmt = $this->db->prepare(self::SEARCH_FROM_TO_SQL);
+        $stmt->execute(array(
+            $this->from,
+            $this->to
+        ));
+
+        $arr = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($arr);
+        return $arr;
     }
 
 }

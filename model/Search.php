@@ -10,12 +10,10 @@ class Search implements JsonSerializable {
 
     private $db;
     private $term;
+    private $genre;
+    private $from;
+    private $to;
 
-
-    public function __construct($term = null)
-    {
-        $this->term =$term;
-    }
 
     public function jsonSerialize() {
         return get_object_vars($this);
