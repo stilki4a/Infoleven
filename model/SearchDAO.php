@@ -15,7 +15,7 @@ class SearchDAO
 
     const SEARCH_FROM_TO_SQL = 'SELECT * FROM books WHERE book_pages BETWEEN ? AND ?';
 
-    const SEARCH_BY_GENRE_SQL = 'SELECT * FROM books WHERE book_genre = ?';
+    const SEARCH_BY_GENRE_SQL = 'SELECT * FROM books WHERE book_genre = ? ';
 
     public function __construct() {
         $this->db = DBConnection::getDb ();

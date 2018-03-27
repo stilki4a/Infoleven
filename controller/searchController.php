@@ -5,24 +5,39 @@ function __autoload($className) {
 
 session_start ();
 
-    if ($_SESSION ['user']) {
+    if ($_SESSION ['user'])
+    {
         $user = json_decode($_SESSION['user']);
 //        $userId = json_decode($_SESSION ['user'])->id;
+       // if ($_SERVER ['REQUEST_METHOD'] == 'GET') {
+            if ((isset($_GET['Search']) && $_GET['genre'] == 0)) {
 
-//        if ((isset($_GET['Search']) && $_GET['genre'] == 0) && !empty($_GET['search'])) {
+                $genre = $_GET['genre'];
+                $dao = new SearchDAO();
+                json_encode($dao->searchGenre($genre));
 
-        if ((isset($_GET['Search']) && $_GET['genre'] == 0)){
 
-            $genre =  $_GET['genre'];
-           $term = $_GET['search'];
+            }
+        //}
+    }
 
-            $dao = new SearchDAO();
-             json_encode($dao->searchGenre($genre));
-             json_encode($dao->searchName($term));
 
-        }
 
-//        if ($_SERVER ['REQUEST_METHOD'] === 'GET') {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //        if ($_SERVER ['REQUEST_METHOD'] === 'GET') {
 //            $term = $_REQUEST;
 ////            // list all contacts
 //            $dao = new SearchDAO();
@@ -32,4 +47,3 @@ session_start ();
 
 
 
-    }

@@ -56,15 +56,6 @@ session_start ();
                 }
             }
 
-
-
-
-
-
-
-
-
-
 //            if(empty($errors)==true){
 //
                 $dao = new BookDAO();
